@@ -1,6 +1,6 @@
 <script>
   import Header from "./components/Header.svelte";
-  import MeetupItem from "./meetup/Item.meetup.svelte";
+  import MeetupCard from "./meetup/Card.meetup.svelte";
 
   const meetups = [
     {
@@ -32,7 +32,7 @@
 <body>
   <div class="container">
     {#each meetups as meetup, index (meetup.id)}
-      <MeetupItem {meetup} />
+      <MeetupCard {meetup} />
     {/each}
   </div>
 </body>
