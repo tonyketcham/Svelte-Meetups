@@ -14,6 +14,7 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+    z-index: 1;
   }
   h1 {
     color: white;
