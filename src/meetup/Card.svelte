@@ -1,8 +1,13 @@
 <script>
   export let meetup = [];
+
+  export let borderColors = ["#daae51", "#d53369"];
+  const randomColor = () => {
+    return borderColors[Math.floor(Math.random() * borderColors.length)];
+  };
 </script>
 
-<article>
+<article style="border-left: 2px solid {randomColor()}">
   <header>
     <h1>{meetup.title}</h1>
     <h2>{meetup.tagline}</h2>

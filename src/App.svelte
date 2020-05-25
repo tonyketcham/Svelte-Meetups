@@ -35,6 +35,7 @@
 
 <style>
   body {
-    top: 4em;
+    padding-top: 6em;
+    background: #201c29;
   }
 </style>
