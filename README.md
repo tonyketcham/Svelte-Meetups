@@ -1,6 +1,6 @@
 # Svelte Meetups
 
-A work in progress for planning events, but with Svelte! 
+A work in progress for planning events 📆, but with Svelte! 🛰
 
 Stay tuned for more!
 
