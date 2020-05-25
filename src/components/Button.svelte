@@ -1,22 +1,33 @@
 <script>
-  export let type;
   export let content;
+  export let type;
   export let href;
   export let mode;
+  export let style;
+
+  import ButtonIcon from "./ButtonIcon.svelte";
 </script>
 
 {#if href}
-  <a class={mode} {href}>
-    {#if mode === 'icon'}
-      <slot />
-    {:else}{content}{/if}
-  </a>
+  {#if mode === 'icon'}
+    <ButtonIcon {href} {style}>
+      <slot>
+        <p>This slot should be filled!</p>
+      </slot>
+    </ButtonIcon>
+  {:else}
+    <a class={style} {href}>{content}</a>
+  {/if}
 {:else}
-  <button class={mode}>
-    {#if mode === 'icon'}
-      <slot />
-    {:else}{content}{/if}
-  </button>
+  {#if mode === 'icon'}
+    <ButtonIcon {type} {style}>
+      <slot>
+        <p>This slot should be filled!</p>
+      </slot>
+    </ButtonIcon>
+  {:else}
+    <button {type} on:click class={style}>{content}</button>
+  {/if}
 {/if}
 
 <style>
@@ -94,5 +105,10 @@
   .outline.success:hover,
   .outline.success:active {
     background: #c2ffd1;
+  }
+
+  .spread {
+    flex: auto;
+    margin: 0 2rem;
   }
 </style>
