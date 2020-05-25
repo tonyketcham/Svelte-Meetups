@@ -9,11 +9,11 @@
     top: 0;
     left: 0;
     height: 4rem;
-    background: #cf0056;
+    background: linear-gradient(45deg, #d53369 0%, #daae51 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.26);
     z-index: 1;
   }
   h1 {

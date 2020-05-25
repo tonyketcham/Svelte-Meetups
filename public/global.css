@@ -7,7 +7,7 @@ html, body {
 body {
 	font-family: 'Fira Code', 'Menlo', Helvetica, sans-serif;
 	margin: 0;
-	top: 2rem;
+	top: 4rem;
 }
 
 a {
@@ -43,12 +43,6 @@ input:disabled {
 
 input[type="range"] {
 	height: 0;
-}
-
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
 }
 
 button:disabled {

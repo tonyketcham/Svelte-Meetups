@@ -1,6 +1,6 @@
 <script>
   import Header from "./components/Header.svelte";
-  import MeetupCard from "./meetup/Card.meetup.svelte";
+  import MeetupGrid from "./meetup/Grid.svelte";
 
   const meetups = [
     {
@@ -30,25 +30,11 @@
 
 <Header />
 <body>
-  <div class="container">
-    {#each meetups as meetup, index (meetup.id)}
-      <MeetupCard {meetup} />
-    {/each}
-  </div>
+  <MeetupGrid {meetups} />
 </body>
 
 <style>
-  html {
-    margin: 0;
-    padding: 0;
-  }
   body {
-    margin: 0;
-    background: #eee;
-  }
-  .container {
-    display: flex;
-    width: 75%;
-    margin: auto;
+    top: 4em;
   }
 </style>
