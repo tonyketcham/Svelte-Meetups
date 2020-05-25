@@ -102,6 +102,7 @@
   body {
     padding-top: 6em;
     background: #201c29;
+    height: 200vh;
   }
   form {
     width: 33%;
