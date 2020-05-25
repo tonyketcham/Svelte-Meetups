@@ -1,8 +1,8 @@
 <script>
-  import TextInput from "./components/TextInput.svelte";
-
   import Header from "./components/Header.svelte";
   import MeetupGrid from "./meetup/Grid.svelte";
+  import TextInput from "./components/TextInput.svelte";
+  import Button from "./components/Button.svelte";
 
   let meetups = [
     {
@@ -92,7 +92,7 @@
       value={description}
       on:input={event => (description = event.target.value)} />
 
-    <button type="submit">Publish</button>
+    <Button type="submit" content="Publish" />
 
   </form>
   <MeetupGrid {meetups} />
@@ -102,5 +102,10 @@
   body {
     padding-top: 6em;
     background: #201c29;
+  }
+  form {
+    width: 33%;
+    margin: auto;
+    margin-bottom: 2rem;
   }
 </style>

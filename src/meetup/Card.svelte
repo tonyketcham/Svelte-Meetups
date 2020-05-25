@@ -1,7 +1,8 @@
 <script>
   export let meetup = [];
-
   export let borderColors = ["#daae51", "#d53369"];
+
+  import Button from "../components/Button.svelte";
   const randomColor = () => {
     return borderColors[Math.floor(Math.random() * borderColors.length)];
   };
@@ -18,8 +19,9 @@
     <p>{meetup.description}</p>
   </div>
   <footer>
-    <button>Show Details</button>
-    <i style="width: 2rem !important; padding: 0.4em; margin: 0 0 0.5em 0;">
+    <Button mode="outline" href="mailto:{meetup.email}" content="Email" />
+    <Button type="button" content="Details" />
+    <Button mode="icon">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
@@ -35,7 +37,7 @@
           30l24 22.8c6.9 6.6 17.8 6.6 24.8 0l24-22.8c42-40 110.4-40 152.5 0 20.1
           19.2 31.2 44.4 31.2 71.1S465 229.8 444.8 249z" />
       </svg>
-    </i>
+    </Button>
 
   </footer>
 
@@ -98,16 +100,12 @@
 
   footer {
     height: 3rem;
-    display: flex;
+    /* display: flex; */
+    padding: 0 0 1rem;
   }
 
-  button {
-    color: #f4f4f4;
-    background-color: #333;
-    outline: none;
-  }
   .icon {
-    height: 100%;
+    height: 2.5rem;
   }
   .heart {
     fill: #d75b61;
