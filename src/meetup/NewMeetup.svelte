@@ -1,0 +1,74 @@
+<script>
+  import TextInput from "../components/TextInput.svelte";
+  import Button from "../components/Button.svelte";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
+  let title = null;
+  let tagline = null;
+  let location = null;
+  let imageURL = null;
+  let contactEmail = null;
+  let description = null;
+
+  let meetup = {
+    title: "title",
+    tagline: "tagline",
+    location: "location",
+    imageURL: "imageURL",
+    contactEmail: "contactEmail",
+    description: "description"
+  };
+</script>
+
+<form on:submit|preventDefault={() => dispatch('newMeetup', meetup)}>
+  <TextInput
+    id="title"
+    label="Title"
+    type="text"
+    value={title}
+    on:input={event => (meetup.title = event.target.value)} />
+  <TextInput
+    id="tagline"
+    label="Tagline"
+    type="text"
+    value={tagline}
+    on:input={event => (meetup.tagline = event.target.value)} />
+  <TextInput
+    id="location"
+    label="Location"
+    type="text"
+    value={location}
+    on:input={event => (meetup.location = event.target.value)} />
+  <TextInput
+    id="imageURL"
+    label="Image URL"
+    type="text"
+    value={imageURL}
+    on:input={event => (meetup.imageURL = event.target.value)} />
+  <TextInput
+    id="contactEmail"
+    label="Contact Email"
+    type="email"
+    value={contactEmail}
+    on:input={event => (meetup.contactEmail = event.target.value)} />
+  <TextInput
+    id="description"
+    label="Description"
+    controlType="textarea"
+    rows="3"
+    value={description}
+    on:input={event => (meetup.description = event.target.value)} />
+
+  <Button type="submit" content="Publish" />
+
+</form>
+
+<style>
+  form {
+    width: 33%;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+</style>

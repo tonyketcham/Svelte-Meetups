@@ -1,4 +1,6 @@
 <script>
+  import NewMeetup from "./meetup/NewMeetup.svelte";
+
   import Header from "./components/Header.svelte";
   import MeetupGrid from "./meetup/Grid.svelte";
   import TextInput from "./components/TextInput.svelte";
@@ -36,15 +38,17 @@
   let contactEmail = "";
   let description = "";
 
-  const addMeetup = () => {
+  const addMeetup = event => {
+    console.log(event);
+
     const newMeetup = {
       id: Math.random().toString(),
-      title: title,
-      tagline: tagline,
-      location: location,
-      imageURL: imageURL,
-      contactEmail: contactEmail,
-      description: description
+      title: event.detail.title,
+      tagline: event.detail.tagline,
+      location: event.detail.location,
+      imageURL: event.detail.imageURL,
+      contactEmail: event.detail.contactEmail,
+      description: event.detail.description
     };
 
     meetups = [newMeetup, ...meetups];
@@ -53,48 +57,7 @@
 
 <Header />
 <body>
-  <form on:submit|preventDefault={addMeetup}>
-    <TextInput
-      id="title"
-      label="Title"
-      type="text"
-      value={title}
-      on:input={event => (title = event.target.value)} />
-    <TextInput
-      id="tagline"
-      label="Tagline"
-      type="text"
-      value={tagline}
-      on:input={event => (tagline = event.target.value)} />
-    <TextInput
-      id="location"
-      label="Location"
-      type="text"
-      value={location}
-      on:input={event => (location = event.target.value)} />
-    <TextInput
-      id="imageURL"
-      label="Image URL"
-      type="text"
-      value={imageURL}
-      on:input={event => (imageURL = event.target.value)} />
-    <TextInput
-      id="contactEmail"
-      label="Contact Email"
-      type="email"
-      value={contactEmail}
-      on:input={event => (contactEmail = event.target.value)} />
-    <TextInput
-      id="description"
-      label="Description"
-      controlType="textarea"
-      rows="3"
-      value={description}
-      on:input={event => (description = event.target.value)} />
-
-    <Button type="submit" content="Publish" />
-
-  </form>
+  <NewMeetup on:newMeetup={addMeetup} />
   <MeetupGrid {meetups} />
 </body>
 
@@ -103,10 +66,5 @@
     padding-top: 6em;
     background: #201c29;
     height: 200vh;
-  }
-  form {
-    width: 33%;
-    margin: auto;
-    margin-bottom: 2rem;
   }
 </style>
