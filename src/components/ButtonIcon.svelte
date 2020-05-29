@@ -36,6 +36,7 @@
     width: 36pt;
     background: transparent;
     border: transparent;
+    outline: none;
   }
   .icon {
     width: 45px;
