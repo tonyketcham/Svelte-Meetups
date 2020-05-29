@@ -1,17 +1,30 @@
 <script>
-  export let type;
-  export let href;
-  export let style;
+  /**
+   * A clickable button that has no intrinsic button styling but rather relies on
+   * the input slot being an icon, or something else that should be clickable.
+   *
+   * @author Tony Ketcham (ketcham.dev@gmail.com)
+   * */
+  export let type = null;
+  export let href = null;
+  export let style = null;
+  export let newTab = null;
 </script>
 
-{#if href}
+{#if href && !newTab}
   <a {href} class={style}>
     <slot style="width: 100%;">
       <p>Default Button Icon</p>
     </slot>
   </a>
+{:else if href && newTab}
+  <a {href} target="_blank" rel="noopener noreferrer" class={style}>
+    <slot style="width: 100%;">
+      <p>Default Button Icon</p>
+    </slot>
+  </a>
 {:else}
-  <button {type} class={style}>
+  <button {type} on:click class={style}>
     <slot style="width: 100%;">
       <p>Default Button Icon</p>
     </slot>
