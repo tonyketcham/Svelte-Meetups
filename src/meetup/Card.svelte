@@ -3,16 +3,19 @@
   export let borderColors = ["#daae51", "#d53369"];
 
   import Button from "../components/Button.svelte";
+  import { createEventDispatcher } from "svelte";
 
   const randomColor = () => {
     return borderColors[Math.floor(Math.random() * borderColors.length)];
   };
+
+  const dispatch = createEventDispatcher();
 </script>
 
 <article style="border-left: 2px solid {randomColor()}">
   <header>
     <h1>{meetup.title}</h1>
-    <div>
+    <div class="details">
       <h2>{meetup.tagline}</h2>
       <h3>{meetup.location}</h3>
     </div>
@@ -24,19 +27,39 @@
   <footer>
     <Button href="mailto:{meetup.contactEmail}" content="Email" />
     <Button style="spread" type="button" content="Details" />
-    <Button mode="icon">
+    <Button
+      mode="icon"
+      on:click={() => dispatch('toggleFavorite', { id: meetup.id })}>
       <slot>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-          <path
-            class="heart"
-            d="M469.6 80.7c-55.7-53-146.3-53-202 0l-11.6 11
-            -11.6-11c-55.7-53-146.3-53-202 0C15.1 106.7 0 141.2 0 177.9c0 36.6
-            15.1 71.1 42.4 97.2l201.2 191c3.5 3.3 7.9 4.9 12.4 4.9 4.4 0 8.9-1.6
-            12.4-4.9l201.2-191C496.9 249 512 214.5 512 177.9 512 141.2 496.9
-            106.7 469.6 80.7zM444.8 249L256 428.3 67.2 249C47 229.8 35.9 204.6
-            35.9 177.9s11.1-52 31.2-71.1c21-20 48.6-30 76.2-30 27.6 0 55.2 10
-            76.3 30l24 22.8c6.9 6.6 17.8 6.6 24.8 0l24-22.8c42-40 110.4-40 152.5
-            0 20.1 19.2 31.2 44.4 31.2 71.1S465 229.8 444.8 249z" />
+          {#if meetup.isFavorited}
+            <path
+              fill="#d75b61"
+              stroke="#d75b61"
+              d="M469.6 80.7c-55.7-53-146.3-53-202 0l-11.6 11
+              -11.6-11c-55.7-53-146.3-53-202 0C15.1 106.7 0 141.2 0 177.9c0 36.6
+              15.1 71.1 42.4 97.2l201.2 191c3.5 3.3 7.9 4.9 12.4 4.9 4.4 0
+              8.9-1.6 12.4-4.9l201.2-191C496.9 249 512 214.5 512 177.9 512 141.2
+              496.9 106.7 469.6 80.7zM444.8 249L256 428.3 67.2 249C47 229.8 35.9
+              204.6 35.9 177.9s11.1-52 31.2-71.1c21-20 48.6-30 76.2-30 27.6 0
+              55.2 10 76.3 30l24 22.8c6.9 6.6 17.8 6.6 24.8 0l24-22.8c42-40
+              110.4-40 152.5 0 20.1 19.2 31.2 44.4 31.2 71.1S465 229.8 444.8
+              249z" />
+          {:else}
+            <path
+              fill="white"
+              stroke="white"
+              stroke-width="1"
+              d="M469.6 80.7c-55.7-53-146.3-53-202 0l-11.6 11
+              -11.6-11c-55.7-53-146.3-53-202 0C15.1 106.7 0 141.2 0 177.9c0 36.6
+              15.1 71.1 42.4 97.2l201.2 191c3.5 3.3 7.9 4.9 12.4 4.9 4.4 0
+              8.9-1.6 12.4-4.9l201.2-191C496.9 249 512 214.5 512 177.9 512 141.2
+              496.9 106.7 469.6 80.7zM444.8 249L256 428.3 67.2 249C47 229.8 35.9
+              204.6 35.9 177.9s11.1-52 31.2-71.1c21-20 48.6-30 76.2-30 27.6 0
+              55.2 10 76.3 30l24 22.8c6.9 6.6 17.8 6.6 24.8 0l24-22.8c42-40
+              110.4-40 152.5 0 20.1 19.2 31.2 44.4 31.2 71.1S465 229.8 444.8
+              249z" />
+          {/if}
         </svg>
       </slot>
     </Button>
@@ -62,9 +85,17 @@
   header {
     position: absolute;
     left: 0;
+    width: inherit;
     justify-content: space-between;
     padding: 1em 2em;
     display: flex;
+  }
+  .details {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    justify-content: center;
   }
   h1,
   h2,
