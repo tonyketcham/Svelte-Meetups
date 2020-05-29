@@ -7,7 +7,7 @@
 <section>
   <div class="container">
     {#each meetups as meetup, index (meetup.id)}
-      <MeetupCard {meetup} />
+      <MeetupCard {meetup} on:toggleFavorite />
     {/each}
   </div>
 </section>

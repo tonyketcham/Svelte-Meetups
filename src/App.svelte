@@ -16,7 +16,8 @@
       imageURL:
         "https://stayfocusedwritersretreat.files.wordpress.com/2014/02/writing-pic1.jpg",
       location: "Dagger Mountain Roastery, Valparaiso, IN 46383",
-      contactEmail: "test@writing.com"
+      contactEmail: "test@writing.com",
+      isFavorited: false
     },
     {
       id: "2",
@@ -27,7 +28,8 @@
       imageURL:
         "http://mediashift.org/wp-content/uploads/sites/8/2014/12/4696338852_bde479b169_o.jpg",
       location: "Uptown Cafe, Valparaiso, IN 46383",
-      contactEmail: "test@coding.com"
+      contactEmail: "test@coding.com",
+      isFavorited: false
     }
   ];
 
@@ -48,17 +50,30 @@
       location: event.detail.location,
       imageURL: event.detail.imageURL,
       contactEmail: event.detail.contactEmail,
-      description: event.detail.description
+      description: event.detail.description,
+      isFavorited: false
     };
 
     meetups = [newMeetup, ...meetups];
+  };
+
+  const toggleFavorite = event => {
+    console.log(event);
+    const id = event.detail.id;
+    const meetup = { ...meetups.find(meetup => meetup.id === id) }; // this copies the object's key-value pairs w/ spread operator so we aren't mutating the original data with favoritedMeetup.
+
+    meetup.isFavorited = !meetup.isFavorited;
+    const meetupIndex = meetups.findIndex(meetup => meetup.id === id);
+    const updatedMeetups = [...meetups];
+    updatedMeetups[meetupIndex] = meetup;
+    meetups = updatedMeetups;
   };
 </script>
 
 <Header />
 <body>
   <NewMeetup on:newMeetup={addMeetup} />
-  <MeetupGrid {meetups} />
+  <MeetupGrid {meetups} on:toggleFavorite={toggleFavorite} />
 </body>
 
 <style>
