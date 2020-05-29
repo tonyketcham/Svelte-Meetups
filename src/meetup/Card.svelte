@@ -138,11 +138,4 @@
     display: flex;
     padding: 1rem 0 0.5rem;
   }
-
-  .icon {
-    height: 2.5rem;
-  }
-  .heart {
-    fill: #d75b61;
-  }
 </style>
