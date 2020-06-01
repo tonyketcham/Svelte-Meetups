@@ -4,6 +4,7 @@
 
   import Button from "../components/Button.svelte";
   import { createEventDispatcher } from "svelte";
+  import Badge from "../components/Badge.svelte";
 
   const randomColor = () => {
     return borderColors[Math.floor(Math.random() * borderColors.length)];
@@ -16,6 +17,10 @@
   <header>
     <h1>{meetup.title}</h1>
     <div class="details">
+      <!-- <div class="badge">
+        <Badge />
+      </div> -->
+
       <h2>{meetup.tagline}</h2>
       <h3>{meetup.location}</h3>
     </div>
@@ -133,7 +138,6 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-
   footer {
     display: flex;
     padding: 1rem 0 0.5rem;
