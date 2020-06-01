@@ -1,5 +1,5 @@
 <script>
-  import NewMeetup from "./meetup/NewMeetup.svelte";
+  import NewMeetup from "./meetup/Form.svelte";
 
   import Header from "./components/Header.svelte";
   import MeetupGrid from "./meetup/Grid.svelte";
@@ -39,6 +39,7 @@
   let imageURL = "";
   let contactEmail = "";
   let description = "";
+  let mutateMeetups = null;
 
   const addMeetup = event => {
     console.log(event);
@@ -72,7 +73,17 @@
 
 <Header />
 <body>
-  <NewMeetup on:newMeetup={addMeetup} />
+
+  {#if mutateMeetups === 'add'}
+    <NewMeetup on:newMeetup={addMeetup} />
+    <container class="transport">
+      <Button content="Cancel" on:click={() => (mutateMeetups = null)} />
+    </container>
+  {:else}
+    <container class="transport">
+      <Button content="+ Meetup" on:click={() => (mutateMeetups = 'add')} />
+    </container>
+  {/if}
   <MeetupGrid {meetups} on:toggleFavorite={toggleFavorite} />
 </body>
 
@@ -81,5 +92,9 @@
     padding-top: 6em;
     background: #201c29;
     height: 200vh;
+  }
+  .transport {
+    display: flex;
+    justify-content: center;
   }
 </style>
