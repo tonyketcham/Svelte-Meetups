@@ -23,7 +23,7 @@
   };
 </script>
 
-<Modal title="Publish a Meetup">
+<Modal title="Publish a Meetup" on:cancel>
   <form on:submit|preventDefault={() => dispatch('newMeetup', meetup)}>
     <TextInput
       id="title"
