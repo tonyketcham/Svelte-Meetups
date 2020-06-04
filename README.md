@@ -2,7 +2,7 @@
 
 A work in progress for planning events 📆, but with Svelte! 🛰
 
-Stay tuned for more!
+Pretty much a personal learning project, but feel free to stay tuned if interested!
 
 
 ## Get started
