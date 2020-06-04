@@ -1,20 +1,25 @@
 <script>
   export let title = "Modal";
+
   import Button from "./Button.svelte";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
 </script>
 
-<div class="modal-backdrop" />
+<div class="modal-backdrop" on:click={() => dispatch('cancel', true)} />
 <div class="modal">
+  <header>
+    <Button mode="icon" on:click={() => dispatch('cancel', true)}>x</Button>
+  </header>
   <h1>{title}</h1>
   <div class="content">
     <slot />
   </div>
+  <footer>
+    <slot name="footer" />
+  </footer>
 </div>
-<footer>
-  <slot name="footer">
-    <Button>Close</Button>
-  </slot>
-</footer>
 
 <style>
   .modal-backdrop {
@@ -38,6 +43,13 @@
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     /* overflow: scroll; */
+  }
+
+  header {
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    margin-top: 1rem;
   }
 
   h1 {
