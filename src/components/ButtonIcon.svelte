@@ -37,6 +37,8 @@
     background: transparent;
     border: transparent;
     outline: none;
+    cursor: pointer;
+    color: white;
   }
   .icon {
     width: 45px;
