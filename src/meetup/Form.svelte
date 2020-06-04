@@ -28,41 +28,47 @@
     label="Title"
     type="text"
     value={title}
-    on:input={event => (meetup.title = event.target.value)} />
+    on:input={event => (meetup.title = event.target.value)}
+    required />
   <TextInput
     id="tagline"
     label="Tagline"
     type="text"
     value={tagline}
-    on:input={event => (meetup.tagline = event.target.value)} />
+    on:input={event => (meetup.tagline = event.target.value)}
+    required />
   <TextInput
     id="location"
     label="Location"
     type="text"
     value={location}
-    on:input={event => (meetup.location = event.target.value)} />
+    on:input={event => (meetup.location = event.target.value)}
+    required />
   <TextInput
     id="imageURL"
     label="Image URL"
     type="text"
     value={imageURL}
-    on:input={event => (meetup.imageURL = event.target.value)} />
+    on:input={event => (meetup.imageURL = event.target.value)}
+    required />
   <TextInput
     id="contactEmail"
     label="Contact Email"
     type="email"
     value={contactEmail}
-    on:input={event => (meetup.contactEmail = event.target.value)} />
+    on:input={event => (meetup.contactEmail = event.target.value)}
+    required />
   <TextInput
     id="description"
     label="Description"
     controlType="textarea"
     rows="3"
     value={description}
-    on:input={event => (meetup.description = event.target.value)} />
+    on:input={event => (meetup.description = event.target.value)}
+    required />
 
   <Button type="submit" content="Publish" />
-
+  <Button on:click={() => dispatch('cancel', true)} content="Cancel" />
 </form>
 
 <style>

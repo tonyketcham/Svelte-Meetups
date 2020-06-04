@@ -75,10 +75,12 @@
 <body>
 
   {#if mutateMeetups === 'add'}
-    <NewMeetup on:newMeetup={addMeetup} />
-    <container class="transport">
+    <NewMeetup
+      on:newMeetup={addMeetup}
+      on:cancel={() => (mutateMeetups = null)} />
+    <!-- <container class="transport">
       <Button content="Cancel" on:click={() => (mutateMeetups = null)} />
-    </container>
+    </container> -->
   {:else}
     <container class="transport">
       <Button content="+ Meetup" on:click={() => (mutateMeetups = 'add')} />
