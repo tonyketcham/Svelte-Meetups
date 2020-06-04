@@ -56,6 +56,8 @@
     };
 
     meetups = [newMeetup, ...meetups];
+
+    mutateMeetups = null;
   };
 
   const toggleFavorite = event => {
@@ -83,7 +85,7 @@
     </container> -->
   {:else}
     <container class="transport">
-      <Button content="+ Meetup" on:click={() => (mutateMeetups = 'add')} />
+      <Button on:click={() => (mutateMeetups = 'add')}>+ Meetup</Button>
     </container>
   {/if}
   <MeetupGrid {meetups} on:toggleFavorite={toggleFavorite} />

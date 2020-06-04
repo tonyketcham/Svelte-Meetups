@@ -67,8 +67,8 @@
     on:input={event => (meetup.description = event.target.value)}
     required />
 
-  <Button type="submit" content="Publish" />
-  <Button on:click={() => dispatch('cancel', true)} content="Cancel" />
+  <Button type="submit">Publish</Button>
+  <Button on:click={() => dispatch('cancel', true)}>Cancel</Button>
 </form>
 
 <style>

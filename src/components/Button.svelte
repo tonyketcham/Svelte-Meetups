@@ -4,7 +4,6 @@
   export let mode = null;
   export let style = null;
   export let newTab = null;
-  export let content = null;
 
   import ButtonIcon from "./ButtonIcon.svelte";
 </script>
@@ -13,15 +12,17 @@
   {#if mode === 'icon'}
     <ButtonIcon {href} {newTab} {style}>
       <slot>
-        <p>This slot should be filled!</p>
+        <p>icon goes here</p>
       </slot>
     </ButtonIcon>
   {:else if newTab}
     <a {href} target="_blank" rel="noopener noreferrer" class={style}>
-      {content}
+      <slot>Link Button</slot>
     </a>
   {:else}
-    <a {href} class={style}>{content}</a>
+    <a {href} class={style}>
+      <slot>Link Button</slot>
+    </a>
   {/if}
 {:else}
   {#if mode === 'icon'}
@@ -31,7 +32,9 @@
       </slot>
     </ButtonIcon>
   {:else}
-    <button {type} on:click class={style}>{content}</button>
+    <button {type} on:click class={style}>
+      <slot>Button</slot>
+    </button>
   {/if}
 {/if}
 
