@@ -1,18 +1,25 @@
 <script>
-  export let label;
-  export let id;
-  export let value;
-  export let controlType;
-  export let type;
-  export let rows;
+  export let label = null;
+  export let id = null;
+  export let value = null;
+  export let controlType = null;
+  export let required = false;
+  export let type = null;
+  export let rows = null;
 </script>
 
 <div class="form-control">
   <label for={id}>{label}</label>
   {#if controlType === 'textarea'}
-    <textarea {rows} {id} {value} on:input />
+    {#if required}
+      <textarea {rows} {id} {value} on:input required />
+    {:else}
+      <textarea {rows} {id} {value} on:input />
+    {/if}
+  {:else if required}
+    <input {type} {id} {value} on:input required />
   {:else}
-    <input {type} {id} {value} on:input />
+    <textarea {rows} {id} {value} on:input />
   {/if}
 </div>
 
