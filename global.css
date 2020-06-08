@@ -1,0 +1,74 @@
+:root {
+	--Bastille: #201C29;
+	--Eggplant: #593850;
+	--Au-Chico: #9D5464;
+	--Japonica: #D87D65;
+	--Saffron-Mango: #FAB560;
+	--Festival: #F9F871;
+	--Orange-White: #fefee7;
+
+
+	--Oxford-Blue: #333B4E;
+	--Blue-Bayoux: #425F73;
+	--Smalt-Blue: #528594;
+	--Tradewind: #6AACAF;
+	--Monte-Carlo: #91D3C2;
+}
+
+html, body {
+	position: relative;
+	width: 100%;
+	background: #201c29;
+}
+
+body {
+	font-family: 'Fira Code', 'Menlo', Helvetica, sans-serif;
+	margin: 0;
+}
+
+a {
+	color: rgb(0,100,200);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: rgb(0,80,160);
+}
+
+label {
+	display: block;
+}
+
+input, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	padding: 0.4em;
+	margin: 0 0 0.5em 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+input:disabled {
+	color: #ccc;
+}
+
+input[type="range"] {
+	height: 0;
+}
+
+/* button:disabled {
+	color: #999;
+}
+
+button:not(:disabled):active {
+	background-color: #ddd;
+}
+
+button:focus {
+	border-color: #666;
+} */
