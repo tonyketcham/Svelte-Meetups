@@ -1,5 +1,7 @@
 # Svelte Meetups
 
+![GitHub Pages deploy](https://github.com/tonyketcham/Svelte-Meetups/workflows/GitHub%20Pages%20deploy/badge.svg)
+
 A work in progress for planning events 📆, but with Svelte! 🛰
 
 Pretty much a personal learning project, but feel free to stay tuned if interested!
