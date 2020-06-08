@@ -30,8 +30,8 @@
     <p>{meetup.description}</p>
   </div>
   <footer>
-    <Button href="mailto:{meetup.contactEmail}" content="Email" />
-    <Button style="spread" type="button" content="Details" />
+    <Button href="mailto:{meetup.contactEmail}">Email</Button>
+    <Button style="spread" type="button">Details</Button>
     <Button
       mode="icon"
       on:click={() => dispatch('toggleFavorite', { id: meetup.id })}>
