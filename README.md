@@ -4,6 +4,8 @@ A work in progress for planning events 📆, but with Svelte! 🛰
 
 Pretty much a personal learning project, but feel free to stay tuned if interested!
 
+UI inspired by [Dev.to](https://dev.to) and [Cinnamon](https://www.cinnamon.video/). If ya happen to know the name for this style of design, please create a PR!
+
 
 ## Get started
 
