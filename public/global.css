@@ -1,3 +1,20 @@
+:root {
+	--Bastille: #201C29;
+	--Eggplant: #593850;
+	--Au-Chico: #9D5464;
+	--Japonica: #D87D65;
+	--Saffron-Mango: #FAB560;
+	--Festival: #F9F871;
+	--Orange-White: #fefee7;
+
+
+	--Oxford-Blue: #333B4E;
+	--Blue-Bayoux: #425F73;
+	--Smalt-Blue: #528594;
+	--Tradewind: #6AACAF;
+	--Monte-Carlo: #91D3C2;
+}
+
 html, body {
 	position: relative;
 	width: 100%;

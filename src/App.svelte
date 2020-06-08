@@ -94,8 +94,8 @@
 <style>
   body {
     padding-top: 6em;
-    background: #201c29;
-    height: 200vh;
+    background: var(--Bastille);
+    min-height: 100vh;
   }
   .transport {
     display: flex;

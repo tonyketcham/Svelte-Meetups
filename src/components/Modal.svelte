@@ -48,12 +48,12 @@
   header {
     display: flex;
     justify-content: flex-end;
-    color: white;
+    color: var(--Orange-White);
     margin-top: 1rem;
   }
 
   h1 {
-    color: white;
+    color: var(--Orange-White);
     padding: 1rem;
     margin: 0;
     text-align: center;

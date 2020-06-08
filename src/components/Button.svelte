@@ -42,10 +42,11 @@
   button,
   a {
     font: inherit;
-    border: 1px solid #cf0056;
-    background: #cf0056;
+    font-weight: 600;
+    border: 2px solid black;
+    background: var(--Saffron-Mango);
     padding: 0.5rem 1rem;
-    color: white;
+    color: black;
     border-radius: 5px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.26);
     cursor: pointer;
@@ -61,7 +62,7 @@
   a:hover,
   a:active {
     background: #e40763;
-    border-color: #e40763;
+    border: 2px solid black;
     box-shadow: 1px 1px 8px rgba(77, 51, 51, 0.26);
   }
 

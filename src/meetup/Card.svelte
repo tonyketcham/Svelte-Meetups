@@ -1,4 +1,7 @@
 <script>
+  /**
+   * @todo Create badge background for header details
+   **/
   export let meetup = [];
   export let borderColors = ["#daae51", "#d53369"];
 
@@ -52,8 +55,8 @@
               249z" />
           {:else}
             <path
-              fill="white"
-              stroke="white"
+              fill="black"
+              stroke="black"
               stroke-width="1"
               d="M469.6 80.7c-55.7-53-146.3-53-202 0l-11.6 11
               -11.6-11c-55.7-53-146.3-53-202 0C15.1 106.7 0 141.2 0 177.9c0 36.6
@@ -80,7 +83,8 @@
     padding: 1em 2em;
     border-radius: 15px;
     color: #fff;
-    background: #201c29;
+    border: 4px solid black;
+    background: var(--Eggplant);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.36);
     position: relative;
     overflow: hidden;
@@ -105,38 +109,46 @@
   h1,
   h2,
   h3 {
-    text-shadow: 0px 2px 20px rgba(0, 0, 0, 0.98);
+    text-shadow: 2px 2px 2px black;
     margin: 0;
   }
   h1 {
+    color: var(--Orange-White);
     font-size: 30pt;
     font-family: Helvetica, sans-serif;
     max-width: 45%;
   }
   h2 {
-    font-size: 13pt;
+    font-size: 15pt;
     font-weight: 400;
-    color: rgb(255, 234, 226);
+    color: var(--Orange-White);
     margin-bottom: 1rem;
     text-transform: uppercase;
+    line-height: 92%;
   }
   h3 {
     font-size: 10pt;
-    font-weight: 300;
+    font-weight: 400;
     opacity: 0.85;
+    line-height: 110%;
   }
   .image {
     height: 12rem;
     margin: -1em -2em 0.5em;
     overflow: hidden;
     background-image: linear-gradient(
-        to bottom,
+        to top left,
         rgba(23, 13, 29, 0.42) 25%,
-        #201c29
+        var(--Bastille)
       ),
       var(--imageURL);
     background-repeat: no-repeat;
     background-size: cover;
+    border-bottom: 4px solid black;
+  }
+  .content {
+    color: var(--Orange-White);
+    text-shadow: 2px 2px 2px black;
   }
   footer {
     display: flex;
