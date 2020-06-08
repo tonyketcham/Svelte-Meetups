@@ -1,4 +1,7 @@
 /node_modules/
-/public/build/
+# /public/build/
 
 .DS_Store
+
+# [alias]
+#     stpp = subtree push --prefix
