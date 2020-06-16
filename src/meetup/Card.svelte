@@ -2,12 +2,12 @@
   /**
    * @todo Create badge background for header details
    **/
-  export let meetup = [];
+  export let data = [];
   export let borderColors = ["#daae51", "#d53369"];
 
-  import Button from "../components/Button.svelte";
+  import Button from "../components/elements/Button.svelte";
   import { createEventDispatcher } from "svelte";
-  import Badge from "../components/Badge.svelte";
+  import Badge from "../components/elements/Badge.svelte";
 
   const randomColor = () => {
     return borderColors[Math.floor(Math.random() * borderColors.length)];
@@ -18,29 +18,29 @@
 
 <article style="border-left: 2px solid {randomColor()}">
   <header>
-    <h1>{meetup.title}</h1>
+    <h1>{data.title}</h1>
     <div class="details">
       <!-- <div class="badge">
         <Badge />
       </div> -->
 
-      <h2>{meetup.tagline}</h2>
-      <h3>{meetup.location}</h3>
+      <h2>{data.tagline}</h2>
+      <h3>{data.location}</h3>
     </div>
   </header>
-  <div class="image" style="--imageURL: url({meetup.imageURL});" />
+  <div class="image" style="--imageURL: url({data.imageURL});" />
   <div class="content">
-    <p>{meetup.description}</p>
+    <p>{data.description}</p>
   </div>
   <footer>
-    <Button href="mailto:{meetup.contactEmail}">Email</Button>
+    <Button href="mailto:{data.contactEmail}">Email</Button>
     <Button style="spread" type="button">Details</Button>
     <Button
       mode="icon"
-      on:click={() => dispatch('toggleFavorite', { id: meetup.id })}>
+      on:click={() => dispatch('toggleFavorite', { id: data.id })}>
       <slot>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-          {#if meetup.isFavorited}
+          {#if data.isFavorited}
             <path
               fill="#d75b61"
               stroke="#d75b61"

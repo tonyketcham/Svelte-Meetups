@@ -2,9 +2,9 @@
   import NewMeetup from "./meetup/Form.svelte";
 
   import Header from "./components/Header.svelte";
-  import MeetupGrid from "./meetup/Grid.svelte";
-  import TextInput from "./components/TextInput.svelte";
-  import Button from "./components/Button.svelte";
+  import MeetupGrid from "./components/molecules/MeetupGrid.svelte";
+  import TextInput from "./components/elements/TextInput.svelte";
+  import Button from "./components/elements/Button.svelte";
 
   let meetups = [
     {
@@ -17,7 +17,7 @@
         "https://stayfocusedwritersretreat.files.wordpress.com/2014/02/writing-pic1.jpg",
       location: "Dagger Mountain Roastery, Valparaiso, IN 46383",
       contactEmail: "test@writing.com",
-      isFavorited: false
+      isFavorited: false,
     },
     {
       id: "2",
@@ -29,8 +29,8 @@
         "http://mediashift.org/wp-content/uploads/sites/8/2014/12/4696338852_bde479b169_o.jpg",
       location: "Uptown Cafe, Valparaiso, IN 46383",
       contactEmail: "test@coding.com",
-      isFavorited: false
-    }
+      isFavorited: false,
+    },
   ];
 
   let title = "";
@@ -41,7 +41,7 @@
   let description = "";
   let mutateMeetups = null;
 
-  const addMeetup = event => {
+  const addMeetup = (event) => {
     console.log(event);
 
     const newMeetup = {
@@ -52,7 +52,7 @@
       imageURL: event.detail.imageURL,
       contactEmail: event.detail.contactEmail,
       description: event.detail.description,
-      isFavorited: false
+      isFavorited: false,
     };
 
     meetups = [newMeetup, ...meetups];
@@ -60,13 +60,13 @@
     mutateMeetups = null;
   };
 
-  const toggleFavorite = event => {
+  const toggleFavorite = (event) => {
     console.log(event);
     const id = event.detail.id;
-    const meetup = { ...meetups.find(meetup => meetup.id === id) }; // this copies the object's key-value pairs w/ spread operator so we aren't mutating the original data with favoritedMeetup.
+    const meetup = { ...meetups.find((meetup) => meetup.id === id) }; // this copies the object's key-value pairs w/ spread operator so we aren't mutating the original data with favoritedMeetup.
 
     meetup.isFavorited = !meetup.isFavorited;
-    const meetupIndex = meetups.findIndex(meetup => meetup.id === id);
+    const meetupIndex = meetups.findIndex((meetup) => meetup.id === id);
     const updatedMeetups = [...meetups];
     updatedMeetups[meetupIndex] = meetup;
     meetups = updatedMeetups;
@@ -88,7 +88,7 @@
       <Button on:click={() => (mutateMeetups = 'add')}>+ Meetup</Button>
     </container>
   {/if}
-  <MeetupGrid {meetups} on:toggleFavorite={toggleFavorite} />
+  <MeetupGrid data={meetups} on:toggleFavorite={toggleFavorite} />
 </body>
 
 <style>
